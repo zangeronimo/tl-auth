@@ -1,0 +1,2 @@
+echo "Clean Architecture is amazing"
+yarn lint-staged

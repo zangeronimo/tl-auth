@@ -6,8 +6,10 @@
   "license": "MIT",
   "scripts": {
     "test": "jest --passWithNoTests",
-    "test:watch": "jest test --watch",
-    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/main.ts"
+    "test:watch": "yarn test --watch",
+    "test:ci": "yarn test --coverage",
+    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/main.ts",
+    "prepare": "husky"
   },
   "keywords": [],
   "description": "",
@@ -30,6 +32,7 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.21.1"
+    "express": "^4.21.1",
+    "lint-staged": "^15.2.10"
   }
 }
