@@ -1,5 +1,5 @@
-import { Msg } from '../../src/application/Msg';
-import JsonWebToken from '../../src/infra/provider/JsonWebToken';
+import { Msg } from '../../../src/application/Msg';
+import JsonWebToken from '../../../src/infra/provider/JsonWebToken';
 
 describe('TokenProvider', () => {
   const makeSut = (expiresIn = '1h', secretKey = 'my-secret-key') => {
