@@ -2,6 +2,7 @@ import { Msg } from '../../application/Msg';
 
 export default interface Password {
   value: string;
+  verify(password: string): boolean;
 }
 
 export class PasswordPlain implements Password {
@@ -13,5 +14,9 @@ export class PasswordPlain implements Password {
       throw new Error(Msg.INVALID_PASSWORD_FORMAT);
     }
     this.value = password;
+  }
+
+  verify(password: string): boolean {
+    return this.value === password;
   }
 }
