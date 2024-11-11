@@ -5,19 +5,18 @@ axios.defaults.validateStatus = function () {
 };
 
 describe('API tests', () => {
-  it.skip('should be able to make login', async () => {
+  it('should be able to make login', async () => {
     const inputLogin = {
       username: 'valid-username',
       password: 'P@ssword',
       company: 'valid-company',
     };
     const responseLogin = await axios.post(
-      'http://localhost:3001/login',
+      'http://localhost:4001/login',
       inputLogin
     );
     const outputLogin = responseLogin.data;
     expect(outputLogin.token).toBeDefined();
     expect(outputLogin.token).toBeTruthy();
-    console.log(outputLogin.token);
   });
 });
