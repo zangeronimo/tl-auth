@@ -26,15 +26,13 @@ describe('TokenProvider', () => {
     expect(decoded?.company).toBe(payload.company);
   });
 
-  it('should receive an error if token has expired', () => {
+  it('should receive an error if token has expired', async () => {
     const jsonWebToken = makeSut('1s');
     const token = jsonWebToken.generate(payload);
-    const timer = setTimeout(() => {
-      expect(() => jsonWebToken.validate(token)).toThrow(
-        Msg.EXPIRED_JSON_WEB_TOKEN
-      );
-    }, 3000);
-    timer.unref();
+    await wait(2000);
+    expect(() => jsonWebToken.validate(token)).toThrow(
+      Msg.EXPIRED_JSON_WEB_TOKEN
+    );
   });
 
   it('should receive an error if token has another secretKey', () => {
